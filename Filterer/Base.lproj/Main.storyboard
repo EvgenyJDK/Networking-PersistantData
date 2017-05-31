@@ -3,12 +3,93 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
+        <scene sceneID="9gG-Sm-zGI">
+            <objects>
+                <tableViewController id="afM-xS-xFN" customClass="ImageFeedViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="28" sectionFooterHeight="28" id="QYi-KW-Fg7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="hrX-IG-LnE">
+                                <rect key="frame" x="0.0" y="92" width="600" height="133"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hrX-IG-LnE" id="Kux-mR-LHn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Naa-Fo-Hgq">
+                                            <rect key="frame" x="8" y="2" width="584" height="128"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYN-db-tG5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="128"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqn-CU-oLf">
+                                                    <rect key="frame" x="288" y="54" width="296" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CYN-db-tG5" firstAttribute="top" secondItem="Naa-Fo-Hgq" secondAttribute="top" id="2YV-Gn-2Wg"/>
+                                                <constraint firstItem="Vqn-CU-oLf" firstAttribute="leading" secondItem="CYN-db-tG5" secondAttribute="trailing" id="36G-Jy-QvM"/>
+                                                <constraint firstAttribute="bottom" secondItem="CYN-db-tG5" secondAttribute="bottom" id="KU2-R5-hTk"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vqn-CU-oLf" secondAttribute="trailing" id="alK-RN-x3H"/>
+                                                <constraint firstItem="Vqn-CU-oLf" firstAttribute="centerY" secondItem="Naa-Fo-Hgq" secondAttribute="centerY" id="dOZ-Br-p22"/>
+                                                <constraint firstItem="CYN-db-tG5" firstAttribute="leading" secondItem="Naa-Fo-Hgq" secondAttribute="leading" id="iZt-hx-DIV"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="dOZ-Br-p22"/>
+                                                </mask>
+                                            </variation>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Naa-Fo-Hgq" firstAttribute="leading" secondItem="Kux-mR-LHn" secondAttribute="leadingMargin" id="DOa-0P-8Tt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Naa-Fo-Hgq" secondAttribute="trailing" id="jpG-om-K9k"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Naa-Fo-Hgq" secondAttribute="bottom" constant="-6" id="upf-Aq-U3i"/>
+                                        <constraint firstItem="Naa-Fo-Hgq" firstAttribute="top" secondItem="Kux-mR-LHn" secondAttribute="topMargin" constant="-6" id="wuc-IV-vmO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="afM-xS-xFN" id="N60-Vo-y0y"/>
+                            <outlet property="delegate" destination="afM-xS-xFN" id="1YX-hn-mhu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ixu-lJ-fcg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZT-P6-4l6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-510" y="289"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JS2-FX-IpX">
+            <objects>
+                <navigationController id="8d3-v5-vDR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q5c-9w-dOw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="afM-xS-xFN" kind="relationship" relationship="rootViewController" id="vhd-Im-GuD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVY-os-Jqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1208" y="289"/>
+        </scene>
+        <!--Filter View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FilterViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -69,7 +150,7 @@
                                                     <action selector="onCompare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TL7-fW-ikd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txy-DH-Ys9">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txy-DH-Ys9">
                                                 <rect key="frame" x="480" y="0.0" width="120" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
