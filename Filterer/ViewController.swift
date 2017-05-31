@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let image = UIImage(named: "sample")
     var filteredImage: UIImage?
-    let avgRed = 118
+    let avgRed = 117
     let avgGreen = 98
     let avgBlue = 83
 
