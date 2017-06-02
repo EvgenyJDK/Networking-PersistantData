@@ -15,10 +15,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+       
+       NSUserDefaults.standardUserDefaults().registerDefaults(["PhotoFeedURLString": "https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=1"])
+      
         return true
     }
 
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        
+        let urlString = NSUserDefaults.standardUserDefaults().stringForKey("PhotoFeedURLString")
+        print(urlString)
+        
+        guard let foundURLString = urlString else {
+            return
+        }
+        
+        if let url = NSURL(string: foundURLString) {
+            self.updateFeed(url, completion: { (feed) -> Void in
+                let viewController = application.windows[0].rootViewController as? ImageFeedViewController
+                viewController?.imageFeed = feed
+            })
+        }
+
+        
+    }
+
+    
+    
+    func updateFeed(url: NSURL, completion: (feed: ImageFeed?) -> Void) {
+        
+        let dataFile = NSBundle.mainBundle().URLForResource("photos_public.gne", withExtension: ".html")!
+        let data = NSData(contentsOfURL: dataFile)!
+        let imageFeed = ImageFeed(data: data, sourceURL: url)
+        completion(feed: imageFeed)
+    }
+
+    
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -33,9 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
