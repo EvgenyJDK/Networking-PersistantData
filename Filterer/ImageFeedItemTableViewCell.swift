@@ -12,6 +12,7 @@ import UIKit
 class ImageFeedItemTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     
 }

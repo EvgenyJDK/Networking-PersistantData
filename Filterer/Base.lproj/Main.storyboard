@@ -58,6 +58,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="itemImageView" destination="CYN-db-tG5" id="wwL-6q-mmC"/>
                                     <outlet property="itemTitle" destination="Vqn-CU-oLf" id="Dh0-Ml-Wdp"/>
                                 </connections>
                             </tableViewCell>
