@@ -10,8 +10,15 @@ import Foundation
 
 
 
-class ImageFeed {
+class ImageFeed: NSObject {
     
+    let items: [ImageFeedItem]
+    let sourceURL: NSURL
     
+    init(items newItems: [ImageFeedItem], sourceURL newURL: NSURL) {
+        self.items = newItems
+        self.sourceURL = newURL
+        super.init()
+    }
     
 }

@@ -40,7 +40,18 @@ class ImageFeedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.imageFeed?.items.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ImageFeedItemTableViewCell", forIndexPath: indexPath) as! ImageFeedItemTableViewCell
+        
+        let item = self.imageFeed?.items[indexPath.row]
+        cell.itemTitle.text = item?.title
+        
+        
+        return cell
     }
     
     

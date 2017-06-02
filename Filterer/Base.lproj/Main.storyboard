@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="hrX-IG-LnE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="hrX-IG-LnE" customClass="ImageFeedItemTableViewCell" customModule="Filterer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hrX-IG-LnE" id="Kux-mR-LHn">
@@ -57,6 +57,9 @@
                                         <constraint firstItem="Naa-Fo-Hgq" firstAttribute="top" secondItem="Kux-mR-LHn" secondAttribute="topMargin" constant="-6" id="wuc-IV-vmO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemTitle" destination="Vqn-CU-oLf" id="Dh0-Ml-Wdp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
