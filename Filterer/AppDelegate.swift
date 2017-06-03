@@ -37,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 viewController?.imageFeed = feed
             })
         }
-
-        
     }
 
     
@@ -50,18 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let imageFeed = ImageFeed(data: data, sourceURL: url)
 //        completion(feed: imageFeed)
         
-        
         let request = NSURLRequest(URL: url)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
             if error == nil && data != nil {
+/* ImageFeed convinience init */
                 let imageFeed = ImageFeed(data: data!, sourceURL: url)
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     completion(feed: imageFeed)
                 })
             }
-            
         }
-        
         task.resume()
     }
 

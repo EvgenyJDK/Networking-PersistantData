@@ -20,7 +20,7 @@ class ImageFeed {
     }
     
     
-/* Translate JSONData (data: NSData) into SWIFT objects */
+/* Transform JSONData (data: NSData) into SWIFT objects */
     
     convenience init? (data: NSData, sourceURL url: NSURL) {
         
@@ -37,7 +37,6 @@ class ImageFeed {
         guard let feedRoot = jsonObject else {
             return nil
         }
-        
         guard let items = feedRoot["items"] as? [AnyObject]  else {
             return nil
         }
@@ -51,24 +50,15 @@ class ImageFeed {
             guard let media = itemDict["media"] as? [String: AnyObject] else {
                 continue
             }
-            
             guard let urlString = media["m"] as? String else {
                 continue
             }
-            
             guard let url = NSURL(string: urlString) else {
                 continue
             }
             
-            print(url)
-            print(itemDict["title"])
-            
             let title = itemDict["title"] as? String
-            
-            
-            print(newItems.count)
             newItems.append(ImageFeedItem(title: title ?? "(no title)", imageURL: url))
-            print(newItems.count)
         }
         
         self.init(items: newItems, sourceURL: url)

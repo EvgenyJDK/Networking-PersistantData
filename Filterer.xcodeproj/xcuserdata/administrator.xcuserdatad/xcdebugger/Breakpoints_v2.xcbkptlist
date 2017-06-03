@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Filterer/ImageFeed.swift"
-            timestampString = "518136909.221162"
+            timestampString = "518176870.825251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "init(data:sourceURL:)"
             landmarkType = "5">
          </BreakpointContent>
