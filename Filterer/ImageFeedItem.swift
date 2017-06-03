@@ -8,16 +8,16 @@
 
 import Foundation
 
-class ImageFeedItem: NSObject {
+struct ImageFeedItem {
     
     let title: String
     let imageURL: NSURL
 
-    init(title: String, imageURL: NSURL) {
-        self.title = title
-        self.imageURL = imageURL
-        super.init()
-    }
+//    init(title: String, imageURL: NSURL) {
+//        self.title = title
+//        self.imageURL = imageURL
+//
+//    }
     
     
     

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class ImageFeed: NSObject {
+class ImageFeed {
     
     let items: [ImageFeedItem]
     let sourceURL: NSURL
@@ -17,7 +17,6 @@ class ImageFeed: NSObject {
     init(items newItems: [ImageFeedItem], sourceURL newURL: NSURL) {
         self.items = newItems
         self.sourceURL = newURL
-        super.init()
     }
     
     
@@ -61,10 +60,15 @@ class ImageFeed: NSObject {
                 continue
             }
             
+            print(url)
+            print(itemDict["title"])
+            
             let title = itemDict["title"] as? String
             
-            newItems.append(ImageFeedItem(title: title ?? "(no title)", imageURL: url))
             
+            print(newItems.count)
+            newItems.append(ImageFeedItem(title: title ?? "(no title)", imageURL: url))
+            print(newItems.count)
         }
         
         self.init(items: newItems, sourceURL: url)

@@ -14,6 +14,8 @@ class ImageFeedViewController: UITableViewController {
     var imageFeed: ImageFeed? {
         didSet {
             self.tableView.reloadData()
+            
+            print("======== \(self.imageFeed?.items.count)")
         }
     }
     

@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let url = NSURL(string: foundURLString) {
-            self.updateFeed(url, completion: { (feed) -> Void in
+            self.updateImageFeed(url, completion: { (feed) -> Void in
                 let viewController = application.windows[0].rootViewController as? ImageFeedViewController
                 viewController?.imageFeed = feed
             })
@@ -43,12 +43,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     
-    func updateFeed(url: NSURL, completion: (feed: ImageFeed?) -> Void) {
+    func updateImageFeed(url: NSURL, completion: (feed: ImageFeed?) -> Void) {
         
-        let dataFile = NSBundle.mainBundle().URLForResource("photos_public.gne", withExtension: ".html")!
-        let data = NSData(contentsOfURL: dataFile)!
-        let imageFeed = ImageFeed(data: data, sourceURL: url)
-        completion(feed: imageFeed)
+//        let dataFile = NSBundle.mainBundle().URLForResource("photos_public.gne", withExtension: ".html")!
+//        let data = NSData(contentsOfURL: dataFile)!
+//        let imageFeed = ImageFeed(data: data, sourceURL: url)
+//        completion(feed: imageFeed)
+        
+        
+        let request = NSURLRequest(URL: url)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            if error == nil && data != nil {
+                let imageFeed = ImageFeed(data: data!, sourceURL: url)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion(feed: imageFeed)
+                })
+            }
+            
+        }
+        
+        task.resume()
     }
 
     
@@ -75,4 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
 
