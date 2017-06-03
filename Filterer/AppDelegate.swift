@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let url = NSURL(string: foundURLString) {
-            self.updateImageFeed(url, completion: { (feed) -> Void in
+            self.loadOrUpdateImageFeed(url, completion: { (feed) -> Void in
                 let viewController = application.windows[0].rootViewController as? ImageFeedViewController
                 viewController?.imageFeed = feed
             })
@@ -53,6 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if error == nil && data != nil {
 /* ImageFeed convinience init */
                 let imageFeed = ImageFeed(data: data!, sourceURL: url)
+/*Save ImageFeed calling method*/
+                if let goodFeed = imageFeed {
+                    if self.saveImageFeed(goodFeed) {
+                        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "lastUpdate")
+                    }
+                }
+                print("loaded Remote Feed!")
+                
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     completion(feed: imageFeed)
                 })
@@ -61,6 +69,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         task.resume()
     }
 
+  
+    
+/* LOAD REMOTELY OR LOCALLY */
+    func loadOrUpdateImageFeed(url: NSURL, completion: (feed: ImageFeed?) -> Void) {
+        
+        let lastUpdateSetting = NSUserDefaults.standardUserDefaults().objectForKey("lastUpdate") as? NSDate
+        
+        var shouldUpdate = true
+        if let lastUpdate = lastUpdateSetting where NSDate().timeIntervalSinceDate(lastUpdate) < 20 {
+            shouldUpdate = false
+        }
+        if shouldUpdate {
+/* update from remote */
+            self.updateImageFeed(url, completion: completion)
+        } else {
+/* loading local */
+            self.readImageFeed{ (feed) -> Void in
+                if let foundSavedFeed = feed where foundSavedFeed.sourceURL.absoluteString == url.absoluteString {
+                    print("loaded saved feed!")
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        () -> Void in
+                        completion(feed:  foundSavedFeed)
+                    })
+                } else {
+                    self.updateImageFeed(url, completion: completion)
+                }
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+// MARK : NSKeyArchived methods to save and load objects
+/* These method have to be implemented in SEPARATE THREAD */
+    
+    func feedFilePath() -> String {
+        
+/* NSFileManager to save file in current path */
+/* DefaultManager - singletone object */
+        let paths = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
+/* When getting URLs back - we get an array, so we're just going to take the 1st item out of the array and append a file back */
+        let filePath = paths[0].URLByAppendingPathComponent("feedFile.plist")
+        return filePath.path!
+    }
+    
+    
+/* It is possible to save thousnads of objects */
+    func saveImageFeed(feed: ImageFeed) -> Bool {
+/* ArchiveRootObject have to be complies with NSCoding Protocol */
+        let success = NSKeyedArchiver.archiveRootObject(feed, toFile: feedFilePath())
+        assert(success, "failed to write archive")
+        return success
+    }
+    
+    
+    func readImageFeed(completion: (feed: ImageFeed?) -> Void) {
+        let path = feedFilePath()
+        let unarchiveObject = NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+        completion(feed: unarchiveObject as? ImageFeed)
+    }
+
+    
+    
+    
     
     
     
