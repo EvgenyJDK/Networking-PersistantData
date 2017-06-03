@@ -9,7 +9,7 @@
 import Foundation
 
 
-class ImageFeed {
+class ImageFeed: NSObject, NSCoding {
     
     let items: [ImageFeedItem]
     let sourceURL: NSURL
@@ -17,11 +17,32 @@ class ImageFeed {
     init(items newItems: [ImageFeedItem], sourceURL newURL: NSURL) {
         self.items = newItems
         self.sourceURL = newURL
+        super.init()
     }
+
+    
+// MARK : Methods complying with NSCoding
+    
+/* Encode itself with all properties */
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.items, forKey: "feedItems")
+        aCoder.encodeObject(self.sourceURL, forKey: "feedSourceURL")
+    }
+    
+/* Decode ImageFeed from file */
+    required convenience init?(coder aDecoder: NSCoder) {
+        let storedItems = aDecoder.decodeObjectForKey("feedItems") as? [ImageFeedItem]
+        let storedURL = aDecoder.decodeObjectForKey("feedSourceURL") as? NSURL
+        
+        guard storedItems != nil && storedURL != nil else {
+            return nil
+        }
+        self.init(items: storedItems!, sourceURL: storedURL!)
+    }
+
     
     
 /* Transform JSONData (data: NSData) into SWIFT objects */
-    
     convenience init? (data: NSData, sourceURL url: NSURL) {
         
         var newItems = [ImageFeedItem]()
