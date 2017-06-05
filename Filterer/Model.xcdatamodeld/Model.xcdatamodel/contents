@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+    <entity name="Image" representedClassName=".Image" syncable="YES">
+        <attribute name="imgTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="images" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName=".Tag" syncable="YES">
+        <attribute name="tagTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="tag" inverseEntity="Image" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Tag" positionX="-324" positionY="-162" width="128" height="73"/>
+        <element name="Image" positionX="-54" positionY="-9" width="128" height="88"/>
+    </elements>
+</model>

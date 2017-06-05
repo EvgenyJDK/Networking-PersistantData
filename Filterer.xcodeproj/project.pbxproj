@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C38B80311EE570E400E1D339 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80301EE570E400E1D339 /* TagsTableViewController.swift */; };
+		C38B80351EE573CD00E1D339 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C38B80331EE573CD00E1D339 /* Model.xcdatamodeld */; };
+		C38B803A1EE575AF00E1D339 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80361EE575AF00E1D339 /* Image+CoreDataProperties.swift */; };
+		C38B803B1EE575AF00E1D339 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80371EE575AF00E1D339 /* Image.swift */; };
+		C38B803C1EE575AF00E1D339 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80381EE575AF00E1D339 /* Tag+CoreDataProperties.swift */; };
+		C38B803D1EE575AF00E1D339 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80391EE575AF00E1D339 /* Tag.swift */; };
 		C38CEC6E1EDF156700DDB94C /* ImageFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38CEC6D1EDF156700DDB94C /* ImageFeedViewController.swift */; };
 		C38CEC731EDF206F00DDB94C /* ImageFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38CEC721EDF206F00DDB94C /* ImageFeed.swift */; };
 		C38CEC751EDF232400DDB94C /* ImageFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38CEC741EDF232400DDB94C /* ImageFeedItem.swift */; };
@@ -26,6 +31,11 @@
 
 /* Begin PBXFileReference section */
 		C38B80301EE570E400E1D339 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
+		C38B80341EE573CD00E1D339 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C38B80361EE575AF00E1D339 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "../Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C38B80371EE575AF00E1D339 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ../Image.swift; sourceTree = "<group>"; };
+		C38B80381EE575AF00E1D339 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "../Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C38B80391EE575AF00E1D339 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = ../Tag.swift; sourceTree = "<group>"; };
 		C38CEC6D1EDF156700DDB94C /* ImageFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedViewController.swift; sourceTree = "<group>"; };
 		C38CEC721EDF206F00DDB94C /* ImageFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeed.swift; sourceTree = "<group>"; };
 		C38CEC741EDF232400DDB94C /* ImageFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedItem.swift; sourceTree = "<group>"; };
@@ -55,6 +65,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C38B80321EE573B400E1D339 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C38B80361EE575AF00E1D339 /* Image+CoreDataProperties.swift */,
+				C38B80371EE575AF00E1D339 /* Image.swift */,
+				C38B80381EE575AF00E1D339 /* Tag+CoreDataProperties.swift */,
+				C38B80391EE575AF00E1D339 /* Tag.swift */,
+				C38B80331EE573CD00E1D339 /* Model.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		C38CEC6F1EDF1FC500DDB94C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +123,7 @@
 		C3B39D9F1E7ECBB6000938E4 /* Filterer */ = {
 			isa = PBXGroup;
 			children = (
+				C38B80321EE573B400E1D339 /* CoreData */,
 				C38CEC701EDF1FF200DDB94C /* Model */,
 				C38CEC711EDF1FFA00DDB94C /* View */,
 				C38CEC6F1EDF1FC500DDB94C /* Controllers */,
@@ -192,15 +215,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C38B803C1EE575AF00E1D339 /* Tag+CoreDataProperties.swift in Sources */,
 				C38CEC771EE17E4A00DDB94C /* ImageFeedItemTableViewCell.swift in Sources */,
+				C38B803B1EE575AF00E1D339 /* Image.swift in Sources */,
 				C3B39DA31E7ECBB6000938E4 /* FilterViewController.swift in Sources */,
 				C38CEC731EDF206F00DDB94C /* ImageFeed.swift in Sources */,
 				C38CEC6E1EDF156700DDB94C /* ImageFeedViewController.swift in Sources */,
 				C38B80311EE570E400E1D339 /* TagsTableViewController.swift in Sources */,
 				C3B39DB31E7ECC6E000938E4 /* RGBAImage.swift in Sources */,
 				C3B39DA11E7ECBB6000938E4 /* AppDelegate.swift in Sources */,
+				C38B80351EE573CD00E1D339 /* Model.xcdatamodeld in Sources */,
+				C38B803D1EE575AF00E1D339 /* Tag.swift in Sources */,
 				C38CEC751EDF232400DDB94C /* ImageFeedItem.swift in Sources */,
 				C3DE21081E9232D1000D7E8E /* TableViewController.swift in Sources */,
+				C38B803A1EE575AF00E1D339 /* Image+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +383,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C38B80331EE573CD00E1D339 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C38B80341EE573CD00E1D339 /* Model.xcdatamodel */,
+			);
+			currentVersion = C38B80341EE573CD00E1D339 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C3B39D951E7ECBB6000938E4 /* Project object */;
 }
