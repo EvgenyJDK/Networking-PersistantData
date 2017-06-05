@@ -96,6 +96,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xLG-kS-lDP" kind="show" identifier="showImages" id="QTe-il-ZBF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -384,7 +387,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageFeedItemTableViewCell" rowHeight="133" id="858-9P-Y78" customClass="ImageFeedItemTableViewCell" customModule="Filterer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="133"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="858-9P-Y78" id="4Pg-6c-nx0">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
@@ -436,9 +439,7 @@
                             <outlet property="delegate" destination="xLG-kS-lDP" id="w9D-tN-GcM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="eXD-N2-cdK">
-                        <barButtonItem key="rightBarButtonItem" title="Tags" id="jhL-CT-MGU"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eXD-N2-cdK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="on2-Yy-A5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
