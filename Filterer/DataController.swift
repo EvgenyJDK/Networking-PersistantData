@@ -54,8 +54,8 @@ class DataController {
 
 /* Avoiding duplicate tags */
         let tagsFetch = NSFetchRequest(entityName: "Tag")
-        /* Looking for a title that equals the title that we've requested (Cocoa syntax) */
-        tagsFetch.predicate = NSPredicate(format: "title == %@", tagTitle)
+/* Looking for a title that equals the title that we've requested (Cocoa syntax) */
+        tagsFetch.predicate = NSPredicate(format: "tagTitle == %@", tagTitle)
         
         var fetchedTags: [Tag]!
         do {

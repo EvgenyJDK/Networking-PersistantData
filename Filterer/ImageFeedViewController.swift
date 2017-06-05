@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 
 class ImageFeedViewController: UITableViewController {
     
@@ -75,7 +77,42 @@ class ImageFeedViewController: UITableViewController {
         }
     }
 
-    
-    
-}
+/* Ask for tag for selected image */
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = self.imageFeed!.items[indexPath.row]
+        
+        let alertController = UIAlertController(title: "Add Tag", message: "Type your tag", preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
+            if let tagTitle = alertController.textFields![0].text {
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.dataController.tagFeedItem(tagTitle, feedItem: item)
+            }
+            
+        }
+        alertController.addAction(defaultAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        alertController.addTextFieldWithConfigurationHandler(nil)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTags" {
+            
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let moc = appDelegate.dataController.managedObjectContext
+            
+            let tagsVC = segue.destinationViewController as! TagsTableViewController
+            
+            let request = NSFetchRequest(entityName: "Tag")
+            request.sortDescriptors = [NSSortDescriptor(key: "tagTitle", ascending: true)]
+            
+            tagsVC.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+
+        }
+    }
+
+}
