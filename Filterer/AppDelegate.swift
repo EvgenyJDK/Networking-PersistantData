@@ -33,7 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let url = NSURL(string: foundURLString) {
             self.loadOrUpdateImageFeed(url, completion: { (feed) -> Void in
-                let viewController = application.windows[0].rootViewController as? ImageFeedViewController
+
+//                let viewController = application.windows[0].rootViewController as? ImageFeedViewController
+/* Instead of getting the root controller, getting the VC from the root controller - we are getting navController + VC from navController */
+                let navController = application.windows[0].rootViewController as? UINavigationController
+                let viewController = navController?.viewControllers[0] as? ImageFeedViewController
+
                 viewController?.imageFeed = feed
             })
         }
