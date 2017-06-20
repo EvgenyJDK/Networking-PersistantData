@@ -124,10 +124,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-iW-iGO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" minimumZoomScale="0.5" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZIC-Et-0go">
+                                <rect key="frame" x="-20" y="-40" width="640" height="616"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-iW-iGO">
+                                        <rect key="frame" x="0.0" y="84" width="640" height="616"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uhc-iW-iGO" secondAttribute="bottom" constant="-44" id="0tO-XR-95d"/>
+                                    <constraint firstAttribute="trailing" secondItem="uhc-iW-iGO" secondAttribute="trailing" constant="20" id="1of-OO-mxj"/>
+                                    <constraint firstItem="uhc-iW-iGO" firstAttribute="centerX" secondItem="ZIC-Et-0go" secondAttribute="centerX" id="5Aa-iX-Ea9"/>
+                                    <constraint firstItem="uhc-iW-iGO" firstAttribute="width" secondItem="ZIC-Et-0go" secondAttribute="width" id="OrU-nV-o1F"/>
+                                    <constraint firstItem="uhc-iW-iGO" firstAttribute="height" secondItem="ZIC-Et-0go" secondAttribute="height" id="Qnj-UP-vRF"/>
+                                    <constraint firstItem="uhc-iW-iGO" firstAttribute="top" secondItem="ZIC-Et-0go" secondAttribute="top" constant="84" id="X7u-HI-Kin"/>
+                                    <constraint firstItem="uhc-iW-iGO" firstAttribute="centerY" secondItem="ZIC-Et-0go" secondAttribute="centerY" id="zxw-kv-vf5"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X7u-HI-Kin"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="15W-DK-YtY"/>
+                                </connections>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozn-MA-38G">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <subviews>
@@ -199,25 +222,27 @@
                                     <constraint firstAttribute="trailing" secondItem="CNe-fX-ptD" secondAttribute="trailing" id="xwo-eQ-VWm"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1g1-tC-6FW">
-                                <rect key="frame" x="7" y="9" width="137" height="51"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qle-2d-Thz">
+                                <rect key="frame" x="36" y="85" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1g1-tC-6FW">
+                                <rect key="frame" x="560" y="84" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qle-2d-Thz">
-                                <rect key="frame" x="36" y="85" width="240" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uhc-iW-iGO" secondAttribute="trailing" id="Bpo-LN-KzK"/>
-                            <constraint firstItem="ozn-MA-38G" firstAttribute="top" secondItem="uhc-iW-iGO" secondAttribute="bottom" id="Qiu-Ud-gGs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZIC-Et-0go" secondAttribute="bottom" constant="24" id="GHp-xB-Ng1"/>
+                            <constraint firstItem="ZIC-Et-0go" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-40" id="H8c-Re-hfO"/>
+                            <constraint firstItem="1g1-tC-6FW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Tgl-hi-i0n"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ozn-MA-38G" secondAttribute="bottom" id="cEQ-Ie-OVG"/>
                             <constraint firstItem="ozn-MA-38G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h0q-nJ-q2Y"/>
-                            <constraint firstItem="uhc-iW-iGO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="o6R-sE-aPw"/>
+                            <constraint firstAttribute="trailing" secondItem="ZIC-Et-0go" secondAttribute="trailing" constant="-20" id="h74-Lv-lP2"/>
+                            <constraint firstItem="ZIC-Et-0go" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-20" id="hSB-H8-JDp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1g1-tC-6FW" secondAttribute="trailing" constant="20" id="mBj-F9-pNM"/>
                             <constraint firstAttribute="trailing" secondItem="ozn-MA-38G" secondAttribute="trailing" id="qAB-Xz-CBH"/>
-                            <constraint firstItem="uhc-iW-iGO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sUa-Iv-wTy"/>
                         </constraints>
                     </view>
                     <connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FilterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -138,6 +138,12 @@ class FilterViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        
+        return imageView
     }
     
     
