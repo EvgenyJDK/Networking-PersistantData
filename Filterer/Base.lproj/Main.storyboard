@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="-1414" y="289"/>
         </scene>
-        <!--Image Feed View Controller-->
+        <!--Tag Image View Controller-->
         <scene sceneID="qcK-xb-sKS">
             <objects>
-                <tableViewController id="xLG-kS-lDP" customClass="ImageFeedViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xLG-kS-lDP" customClass="TagImageViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="28" sectionFooterHeight="28" id="bdZ-ZB-yW4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

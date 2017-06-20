@@ -49,7 +49,7 @@ class TagsTableViewController: UITableViewController {
         
         if segue.identifier == "showImages" {
             let indexPath = self.tableView.indexPathForSelectedRow!
-            let destination = segue.destinationViewController as! ImageFeedViewController
+            let destination = segue.destinationViewController as! TagImageViewController
             
             let tag = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Tag
             if let images = tag.images?.allObjects as? [Image] {

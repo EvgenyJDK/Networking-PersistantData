@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C367581A1EF9159600154BEA /* TagImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36758191EF9159600154BEA /* TagImageViewController.swift */; };
 		C38B80311EE570E400E1D339 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80301EE570E400E1D339 /* TagsTableViewController.swift */; };
 		C38B80351EE573CD00E1D339 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C38B80331EE573CD00E1D339 /* Model.xcdatamodeld */; };
 		C38B803A1EE575AF00E1D339 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B80361EE575AF00E1D339 /* Image+CoreDataProperties.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C36758191EF9159600154BEA /* TagImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagImageViewController.swift; sourceTree = "<group>"; };
 		C38B80301EE570E400E1D339 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		C38B80341EE573CD00E1D339 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C38B80361EE575AF00E1D339 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "../Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				C3B39DA21E7ECBB6000938E4 /* FilterViewController.swift */,
 				C38CEC6D1EDF156700DDB94C /* ImageFeedViewController.swift */,
 				C38B80301EE570E400E1D339 /* TagsTableViewController.swift */,
+				C36758191EF9159600154BEA /* TagImageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				C38B803B1EE575AF00E1D339 /* Image.swift in Sources */,
 				C3B39DA31E7ECBB6000938E4 /* FilterViewController.swift in Sources */,
 				C38CEC731EDF206F00DDB94C /* ImageFeed.swift in Sources */,
+				C367581A1EF9159600154BEA /* TagImageViewController.swift in Sources */,
 				C38CEC6E1EDF156700DDB94C /* ImageFeedViewController.swift in Sources */,
 				C38B80311EE570E400E1D339 /* TagsTableViewController.swift in Sources */,
 				C3B39DB31E7ECC6E000938E4 /* RGBAImage.swift in Sources */,
