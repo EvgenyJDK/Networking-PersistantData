@@ -48,7 +48,7 @@ class DataController {
     
     
 /* Taking imageFeedItem, string for a tag name, and add it to document */
-/* Searching - FethcRequest, creating - save, setting properties of the items, setting relationship */
+/* Searching - FetchRequest, creating - save, setting properties of the items, setting relationship */
     
     func tagFeedItem(tagTitle: String, feedItem: ImageFeedItem) {
 
@@ -64,7 +64,7 @@ class DataController {
             fatalError("fetch failed")
         }
 
-        /* Creating new one title, if requested dodn't found*/
+/* Creating new one title, if requested didn't found*/
         var tag: Tag
         if fetchedTags.count == 0 {
             tag = NSEntityDescription.insertNewObjectForEntityForName("Tag", inManagedObjectContext: self.managedObjectContext) as! Tag

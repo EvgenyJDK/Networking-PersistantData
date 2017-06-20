@@ -64,5 +64,32 @@ class TagImageViewController: UITableViewController {
 
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var image = UIImage(named: "sample")
+        let imageURL = self.imageFeed?.items[indexPath.row].imageURL
+        
+        let request = NSURLRequest(URL: imageURL!)
+        let dataTask = self.urlSession.dataTaskWithRequest(request) { (data, response, error) -> Void in
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                if error == nil && data != nil {
+                    image = UIImage(data: data!)!
+                    return self.performSegueWithIdentifier("showEditor", sender: image)
+                }
+            })
+        }
+        dataTask.resume()
+    }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showEditor" {
+            let filterVC = segue.destinationViewController as! FilterViewController
+            print([sender!.row])
+            filterVC.image = sender as? UIImage
+        }
+    }
     
 }

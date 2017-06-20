@@ -431,6 +431,7 @@
                                 <connections>
                                     <outlet property="itemImageView" destination="bkY-rE-FDX" id="amS-nN-whP"/>
                                     <outlet property="itemTitle" destination="LMm-Kc-Qxx" id="lDQ-CO-Rit"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showEditor" trigger="accessoryAction" id="4Th-Eb-Q2j"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

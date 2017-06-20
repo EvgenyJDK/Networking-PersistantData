@@ -25,7 +25,8 @@ class FilterViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var slider: UISlider!
     
-    let image = UIImage(named: "sample")
+//    let image = UIImage(named: "sample")
+    var image: UIImage?
     var filteredImage: UIImage?
     let avgRed = 117
     let avgGreen = 98
@@ -33,11 +34,14 @@ class FilterViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     var previousFilter : String = ""
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let image = UIImage(named: "sample")
         
+//        print("IMAGE URL = \(imageURL)")
+//        let image = getImage()
         
         self.imageView.image = image
         compareButton.enabled = false
